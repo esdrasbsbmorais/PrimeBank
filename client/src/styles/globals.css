@@ -88,6 +88,20 @@
   }
 }
 
+/* Grafico linha */
+.ct-line {
+  stroke: #00ffaa;
+  stroke-width: 2px;
+}
+
+.ct-point {
+  stroke: #ffffff;
+  stroke-width: 6px;
+}
+
+.ct-label {
+  color: #ffffff;
+}
 
 /* CSS do Cartão Mágico */
 .container-card {

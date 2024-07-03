@@ -5,7 +5,8 @@ export default function NavBar() {
     return (
         <nav className="flex justify-between text-zinc-50 p-10 bg-[#161616]">
             <div>
-                <Link href={"/Cards"}>Cartões</Link>
+                <Link href={"/"}>Inicio</Link>
+                <Link href={"/Cards"} className="ml-4">Cartões</Link>
             </div>
             <Link href={"/"}>
                 <Image src={"/primebank.svg"} width={200} height={88}></Image>
