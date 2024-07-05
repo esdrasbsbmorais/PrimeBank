@@ -55,3 +55,21 @@ export const loginUser = async (req, res) => {
     res.status(500).send({ message: "Erro ao tentar fazer login" });
   }
 };
+
+export const deleteUser = async (req, res) => {
+  const userId = req.user.userId;
+
+  try {
+    const result = await pool.query("DELETE FROM users WHERE id = $1", [userId]);
+
+    if (result.rowCount === 1) {
+      res.clearCookie('token'); // Limpa o cookie de autenticação
+      res.status(200).send({ message: "Usuário excluído com sucesso!" });
+    } else {
+      res.status(404).send({ message: "Usuário não encontrado." });
+    }
+  } catch (error) {
+    console.error("Erro ao excluir o usuário", error);
+    res.status(500).send({ message: "Erro ao excluir o usuário." });
+  }
+};

@@ -3,6 +3,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import io from 'socket.io-client';
 import Image from 'next/image';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const servers = ['http://localhost:1000', 'http://localhost:1001', 'http://localhost:1002'];
 let currentServerIndex = 0;
@@ -116,8 +119,11 @@ export default function Chat() {
   if (!isLoggedIn) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-[#181a1b]">
+        <Link href={"/Dashboard"} className='top-20 left-20 absolute'>
+          <FontAwesomeIcon icon={faArrowLeft} className="cursor-pointer mr-2 text-white" onClick={() => router.back()} />
+        </Link>
         <Image src={"/primebank.svg"} width={200} height={88} className='mb-6'></Image>
-        <div className="text-xl font-bold mb-4 text-white">Digite seu nome de usuário para entrar no chat</div>
+        <div className="text-xl font-bold mb-4 text-white">Digite seu nome de usuário</div>
         <Input
           placeholder="Username"
           value={username}

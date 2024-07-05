@@ -22,9 +22,9 @@ const createCardTable = async () => {
       UserId INT NOT NULL REFERENCES Users(id),
       CardNumber VARCHAR(255) NOT NULL,
       SpendingLimit DECIMAL(10, 2) NOT NULL,
-      ExpiryDate DATE NOT NULL,
+      ExpiryDate VARCHAR(50) NOT NULL,
       CardType VARCHAR(50) NOT NULL,
-      IssueDate DATE NOT NULL,
+      IssueDate VARCHAR(50) NOT NULL,
       Blocked BOOLEAN NOT NULL
     );
   `;
